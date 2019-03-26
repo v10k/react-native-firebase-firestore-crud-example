@@ -1,3 +1,14 @@
-# React Native Firebase Tutorial: Build CRUD Firestore App
+Instalar npm
+Entrar na pasta do projeto
+no terminal:
 
-This source code is part of [React Native Firebase Tutorial: Build CRUD Firestore App](https://www.djamware.com/post/5bbcd38080aca7466989441b/react-native-firebase-tutorial-build-crud-firestore-app) tutorial.
+- npm install
+- npm install --save firebase
+- npm start
+
+utilizar expo no celular para exibir
+
+
+Código base e alterado de: [https://www.djamware.com/post/5bbcd38080aca7466989441b/react-native-firebase-tutorial-build-crud-firestore-app]
+
+

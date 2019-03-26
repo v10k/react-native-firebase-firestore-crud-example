@@ -5,7 +5,7 @@ import firebase from '../Firebase';
 
 class EditBoardScreen extends Component {
   static navigationOptions = {
-    title: 'Edit Board',
+    title: 'Editar nota',
   };
   constructor() {
     super();
@@ -31,7 +31,7 @@ class EditBoardScreen extends Component {
           isLoading: false
         });
       } else {
-        console.log("No such document!");
+        console.log("Documento não encontrado !");
       }
     });
   }
@@ -63,7 +63,7 @@ class EditBoardScreen extends Component {
       this.props.navigation.navigate('Board');
     })
     .catch((error) => {
-      console.error("Error adding document: ", error);
+      console.error("Erro ao adicionar documento: ", error);
       this.setState({
         isLoading: false,
       });
@@ -82,23 +82,29 @@ class EditBoardScreen extends Component {
       <ScrollView style={styles.container}>
         <View style={styles.subContainer}>
           <TextInput
-              placeholder={'Title'}
+              style={styles.textForm}
+              placeholder={'Título'}
+              placeholderTextColor="#000" 
               value={this.state.title}
               onChangeText={(text) => this.updateTextInput(text, 'title')}
           />
         </View>
         <View style={styles.subContainer}>
           <TextInput
+              style={styles.textForm}
               multiline={true}
               numberOfLines={4}
-              placeholder={'Description'}
+              placeholder={'Descrição'}
+              placeholderTextColor="#000"
               value={this.state.description}
               onChangeText={(text) => this.updateTextInput(text, 'description')}
           />
         </View>
         <View style={styles.subContainer}>
           <TextInput
-              placeholder={'Author'}
+              style={styles.textForm}
+              placeholder={'Autor'}
+              placeholderTextColor="#000" 
               value={this.state.author}
               onChangeText={(text) => this.updateTextInput(text, 'author')}
           />
@@ -106,8 +112,9 @@ class EditBoardScreen extends Component {
         <View style={styles.button}>
           <Button
             large
-            leftIcon={{name: 'update'}}
-            title='Update'
+            leftIcon={{name: 'update', color: '#0BCCF7'}}
+            buttonStyle={{ backgroundColor: '#3F3E3F' }}
+            title='Salvar'
             onPress={() => this.updateBoard()} />
         </View>
       </ScrollView>
@@ -122,10 +129,12 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     flex: 1,
-    marginBottom: 20,
+    marginBottom: 10,
     padding: 5,
-    borderBottomWidth: 2,
-    borderBottomColor: '#CCCCCC',
+  },
+  textForm: {
+    fontSize: 14,
+    lineHeight: 2,
   },
   activity: {
     position: 'absolute',

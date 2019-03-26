@@ -6,7 +6,7 @@ import firebase from '../Firebase';
 class BoardScreen extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      title: 'Board List',
+      title: 'Lista de notas',
       headerRight: (
         <Button
           buttonStyle={{ padding: 0, backgroundColor: 'transparent' }}

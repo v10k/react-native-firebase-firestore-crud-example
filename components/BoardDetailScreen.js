@@ -5,7 +5,7 @@ import firebase from '../Firebase';
 
 class BoardDetailScreen extends Component {
   static navigationOptions = {
-    title: 'Board Details',
+    title: 'Gerenciador de nota',
   };
   constructor() {
     super();
@@ -26,7 +26,7 @@ class BoardDetailScreen extends Component {
           isLoading: false
         });
       } else {
-        console.log("No such document!");
+        console.log("Documento não existe !");
       }
     });
   }
@@ -36,13 +36,13 @@ class BoardDetailScreen extends Component {
       isLoading: true
     });
     firebase.firestore().collection('boards').doc(key).delete().then(() => {
-      console.log("Document successfully deleted!");
+      console.log("Documento deletado com sucesso!");
       this.setState({
         isLoading: false
       });
       navigation.navigate('Board');
     }).catch((error) => {
-      console.error("Error removing document: ", error);
+      console.error("Erro ao deletar documento: ", error);
       this.setState({
         isLoading: false
       });
@@ -73,9 +73,9 @@ class BoardDetailScreen extends Component {
           <View style={styles.detailButton}>
             <Button
               large
-              backgroundColor={'#CCCCCC'}
-              leftIcon={{name: 'edit'}}
-              title='Edit'
+              leftIcon={{name: 'edit', color: '#0BCCF7'}}
+              buttonStyle={{ backgroundColor: '#3F3E3F' }}
+              title='Editar'
               onPress={() => {
                 this.props.navigation.navigate('EditBoard', {
                   boardkey: `${JSON.stringify(this.state.key)}`,
@@ -85,10 +85,9 @@ class BoardDetailScreen extends Component {
           <View style={styles.detailButton}>
             <Button
               large
-              backgroundColor={'#999999'}
-              color={'#FFFFFF'}
-              leftIcon={{name: 'delete'}}
-              title='Delete'
+              leftIcon={{name: 'delete', color: '#0BCCF7'}}
+              buttonStyle={{ backgroundColor: '#3F3E3F' }}
+              title='Deletar'
               onPress={() => this.deleteBoard(this.state.key)} />
           </View>
         </Card>

@@ -6,7 +6,8 @@ import BoardDetailScreen from './components/BoardDetailScreen';
 import AddBoardScreen from './components/AddBoardScreen';
 import EditBoardScreen from './components/EditBoardScreen';
 
-const RootStack = createStackNavigator(
+
+const Menu = createStackNavigator(
   {
     Board: BoardScreen,
     BoardDetails: BoardDetailScreen,
@@ -17,9 +18,9 @@ const RootStack = createStackNavigator(
     initialRouteName: 'Board',
     navigationOptions: {
       headerStyle: {
-        backgroundColor: '#777777',
+        backgroundColor: '#3F3E3F',
       },
-      headerTintColor: '#fff',
+      headerTintColor: '#0BCCF7',
       headerTitleStyle: {
         fontWeight: 'bold',
       },
@@ -30,7 +31,7 @@ const RootStack = createStackNavigator(
 
 export default class App extends React.Component {
   render() {
-    return <RootStack />;
+    return <Menu />;
   }
 }
 
@@ -42,3 +43,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
+// ignorar mensagem de erro android
+console.ignoredYellowBox = ['Setting a timer'];

@@ -5,7 +5,7 @@ import firebase from '../Firebase';
 
 class AddBoardScreen extends Component {
   static navigationOptions = {
-    title: 'Add Board',
+    title: 'Adicionar nota',
   };
   constructor() {
     super();
@@ -41,7 +41,7 @@ class AddBoardScreen extends Component {
       this.props.navigation.goBack();
     })
     .catch((error) => {
-      console.error("Error adding document: ", error);
+      console.error("Error ao adicionar documento: ", error);
       this.setState({
         isLoading: false,
       });
@@ -60,23 +60,29 @@ class AddBoardScreen extends Component {
       <ScrollView style={styles.container}>
         <View style={styles.subContainer}>
           <TextInput
-              placeholder={'Title'}
+              style={styles.textForm}
+              placeholder={'Título'}
+              placeholderTextColor="#000" 
               value={this.state.title}
               onChangeText={(text) => this.updateTextInput(text, 'title')}
           />
         </View>
         <View style={styles.subContainer}>
           <TextInput
+              style={styles.textForm}
               multiline={true}
               numberOfLines={4}
-              placeholder={'Description'}
+              placeholder={'Descrição'}
+              placeholderTextColor="#000" 
               value={this.state.description}
               onChangeText={(text) => this.updateTextInput(text, 'description')}
           />
         </View>
         <View style={styles.subContainer}>
           <TextInput
-              placeholder={'Author'}
+              style={styles.textForm}
+              placeholder={'Autor'}
+              placeholderTextColor="#000" 
               value={this.state.author}
               onChangeText={(text) => this.updateTextInput(text, 'author')}
           />
@@ -84,8 +90,9 @@ class AddBoardScreen extends Component {
         <View style={styles.button}>
           <Button
             large
-            leftIcon={{name: 'save'}}
-            title='Save'
+            leftIcon={{name: 'save',  color: '#0BCCF7'}}
+            buttonStyle={{ backgroundColor: '#3F3E3F' }}
+            title='Salvar nota'
             onPress={() => this.saveBoard()} />
         </View>
       </ScrollView>
@@ -100,10 +107,12 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     flex: 1,
-    marginBottom: 20,
+    marginBottom: 10,
     padding: 5,
-    borderBottomWidth: 2,
-    borderBottomColor: '#CCCCCC',
+  },
+  textForm: {
+    fontSize: 14,
+    lineHeight: 2,
   },
   activity: {
     position: 'absolute',
@@ -112,7 +121,7 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   }
 })
 
