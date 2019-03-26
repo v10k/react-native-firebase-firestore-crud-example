@@ -9,6 +9,6 @@ no terminal:
 utilizar expo no celular para exibir
 
 
-Código base e alterado de: [https://www.djamware.com/post/5bbcd38080aca7466989441b/react-native-firebase-tutorial-build-crud-firestore-app]
+Código base e alterado de: [React Native Firebase Tutorial: Build CRUD Firestore App](https://www.djamware.com/post/5bbcd38080aca7466989441b/react-native-firebase-tutorial-build-crud-firestore-app) tutorial.
 
 
